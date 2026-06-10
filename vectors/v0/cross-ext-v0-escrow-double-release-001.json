@@ -1,0 +1,31 @@
+{
+  "vector_id": "cross-ext-v0-escrow-double-release-001",
+  "attack_class": "escrow_double_release",
+  "composition_layers": [
+    "settlement"
+  ],
+  "input_envelope": {
+    "escrow_id": "esc_004_dbl",
+    "settlement_kind": "a2a-se",
+    "mandate_hash": "sha256:4d6e8f0a2b4d6e8f0a2b4d6e8f0a2b4d6e8f0a2b4d6e8f0a2b4d6e8f0a2b4d6e",
+    "amount": "100.000000",
+    "currency": "USDC",
+    "rail": "algovoi",
+    "chain": "base",
+    "release_attempts": [
+      {
+        "trigger": "task_state_completed",
+        "ts": "2026-05-19T05:00:00Z"
+      },
+      {
+        "trigger": "manual_mediator_release",
+        "ts": "2026-05-19T05:00:02Z"
+      }
+    ]
+  },
+  "expected_verdict": "BLOCK",
+  "expected_error_code": "RELEASE_IDEMPOTENCY_VIOLATION",
+  "mediator_behavior": null,
+  "signer_did": "did:web:api.algovoi.co.uk",
+  "jws": "eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJhdHRhY2tfY2xhc3MiOiJlc2Nyb3dfZG91YmxlX3JlbGVhc2UiLCJjb21wb3NpdGlvbl9sYXllcnMiOlsic2V0dGxlbWVudCJdLCJleHBlY3RlZF9lcnJvcl9jb2RlIjoiUkVMRUFTRV9JREVNUE9URU5DWV9WSU9MQVRJT04iLCJleHBlY3RlZF92ZXJkaWN0IjoiQkxPQ0siLCJpbnB1dF9lbnZlbG9wZSI6eyJhbW91bnQiOiIxMDAuMDAwMDAwIiwiY2hhaW4iOiJiYXNlIiwiY3VycmVuY3kiOiJVU0RDIiwiZXNjcm93X2lkIjoiZXNjXzAwNF9kYmwiLCJtYW5kYXRlX2hhc2giOiJzaGEyNTY6NGQ2ZThmMGEyYjRkNmU4ZjBhMmI0ZDZlOGYwYTJiNGQ2ZThmMGEyYjRkNmU4ZjBhMmI0ZDZlOGYwYTJiNGQ2ZSIsInJhaWwiOiJhbGdvdm9pIiwicmVsZWFzZV9hdHRlbXB0cyI6W3sidHJpZ2dlciI6InRhc2tfc3RhdGVfY29tcGxldGVkIiwidHMiOiIyMDI2LTA1LTE5VDA1OjAwOjAwWiJ9LHsidHJpZ2dlciI6Im1hbnVhbF9tZWRpYXRvcl9yZWxlYXNlIiwidHMiOiIyMDI2LTA1LTE5VDA1OjAwOjAyWiJ9XSwic2V0dGxlbWVudF9raW5kIjoiYTJhLXNlIn0sIm1lZGlhdG9yX2JlaGF2aW9yIjpudWxsLCJzaWduZXJfZGlkIjoiZGlkOndlYjphcGkuYWxnb3ZvaS5jby51ayIsInZlY3Rvcl9pZCI6ImNyb3NzLWV4dC12MC1lc2Nyb3ctZG91YmxlLXJlbGVhc2UtMDAxIn0.lNLyre4_5p3HApoKHyl2ynvJhjRz6SrvtXTcx9opABNRmPQK540KuAihX543lOPf0h40nY7lIdr0WWSeK6oVBQ"
+}

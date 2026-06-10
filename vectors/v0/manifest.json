@@ -1,0 +1,149 @@
+{
+  "schema_version": "1.1",
+  "artefact_id": "cross-extension-v0",
+  "published_at": "2026-05-19T05:30:00Z",
+  "revised_at": "2026-06-01T06:04:23Z",
+  "signer_did": "did:web:api.algovoi.co.uk",
+  "canonicalizer": "rfc8785@0.1.4",
+  "signing_alg": "EdDSA",
+  "kid": "d0481df4cbbda8e8aba86709419884ef",
+  "public_key_resolver": "https://api.algovoi.co.uk/.well-known/jwks.json",
+  "did_document": "https://api.algovoi.co.uk/.well-known/did.json",
+  "source_url": "https://api.algovoi.co.uk/.well-known/cross-extension/v0.json",
+  "vendored_from": "a2a-settlement/tests/conformance/fixtures/cross-extension-v0.json",
+  "context": {
+    "thread": "https://github.com/a2aproject/A2A/discussions/1576",
+    "eriknewton_commitment": "https://github.com/a2aproject/A2A/discussions/1576#discussioncomment-16970991",
+    "msaleme_categories_pending": [
+      "dispute_dos",
+      "reputation_manipulation",
+      "cascade_refund",
+      "skill_pricing_bait"
+    ],
+    "envelope_schema_fields": [
+      "vector_id",
+      "attack_class",
+      "composition_layers",
+      "input_envelope",
+      "expected_verdict",
+      "expected_error_code",
+      "mediator_behavior",
+      "signer_did",
+      "jws"
+    ],
+    "layer_type_provenance": {
+      "_note": "The composition envelope (composition_layers framework, canonicaliser, verification recipe, JWS shape) is AlgoVoi-authored. Individual layer types carry their own authorship as recorded below. A layer type's internal field schema is authored by its originator, not by AlgoVoi.",
+      "envelope": {
+        "authored_by": "AlgoVoi (chopmob-cloud)",
+        "signer_did": "did:web:api.algovoi.co.uk",
+        "covers": [
+          "composition_layers",
+          "canonicalizer",
+          "verification_recipe",
+          "jws"
+        ]
+      },
+      "layer_types": {
+        "settlement": {
+          "authored_by": "AlgoVoi (chopmob-cloud)"
+        },
+        "reputation": {
+          "authored_by": "AlgoVoi (chopmob-cloud)"
+        },
+        "mandate_verification": {
+          "authored_by": "Christian Magorrian / A2CN Protocol",
+          "namespace": "a2cn:record:v0.2",
+          "source": "https://github.com/a2aproject/A2A/discussions/1576",
+          "contributed_at": "2026-06-01T05:36:49Z"
+        },
+        "dispute_resolution": {
+          "authored_by": "Concordia Protocol",
+          "status": "pending_definition",
+          "source": "https://github.com/a2aproject/A2A/discussions/1576"
+        }
+      }
+    },
+    "layer_type_registry": {
+      "settlement": {
+        "authored_by": "AlgoVoi (chopmob-cloud)",
+        "required": [
+          "escrow_id",
+          "settlement_kind",
+          "mandate_hash",
+          "amount",
+          "currency",
+          "rail",
+          "chain"
+        ]
+      },
+      "reputation": {
+        "authored_by": "AlgoVoi (chopmob-cloud)",
+        "required": [
+          "client_did"
+        ],
+        "optional": [
+          "win_rate_30d",
+          "dispute_count_30d",
+          "auto_allow_threshold",
+          "value_weighted_history"
+        ]
+      },
+      "mandate_verification": {
+        "authored_by": "Christian Magorrian / A2CN Protocol",
+        "namespace": "a2cn:record:v0.2",
+        "required": [
+          "layer",
+          "protocol",
+          "version",
+          "session_id",
+          "mandate_hash",
+          "initiator_did",
+          "responder_did",
+          "transaction_record_hash",
+          "record_id"
+        ],
+        "optional": [
+          "requires_human_approval_above",
+          "approval_receipt_hash",
+          "dispute_notice_id"
+        ],
+        "verifier_checks": [
+          "transaction_record_hash: recompute SHA-256 over JCS-canonical transaction record from session inputs; must match.",
+          "mandate_hash: resolve each party DID document, fetch mandate credential, recompute hash; confirms both agents operated within authorised bounds at session time.",
+          "record_id: verify UUID v5 derivation from session_id using A2CN namespace a2cn:record:v0.2."
+        ],
+        "does_not_carry": [
+          "mandate credential",
+          "session message content",
+          "offer chain"
+        ],
+        "note": "dispute_notice_id SHOULD be present for any entry whose terminal state is DISPUTE_RESOLVED, so the chain is reconstructable from the entry alone. It is the join point with the dispute_resolution layer; both point back to transaction_record_hash for chain continuity."
+      },
+      "dispute_resolution": {
+        "authored_by": "Concordia Protocol",
+        "status": "pending_definition",
+        "expected_fields": [
+          "resolver_did",
+          "resolution_outcome",
+          "fulfilled_with_mediation_receipt_hash"
+        ],
+        "note": "Points back to transaction_record_hash for chain continuity. Field shape pending Concordia definition."
+      }
+    },
+    "verification_recipe": [
+      "1. Extract the jws field; the remaining object is the unsigned vector.",
+      "2. Compute rfc8785.dumps(unsigned_vector); this yields canonical bytes.",
+      "3. Split jws on '.' into [header_b64, payload_b64, signature_b64].",
+      "4. Confirm base64url-decode(payload_b64) == canonical_bytes from step 2.",
+      "5. Resolve signer_did to public key via did:web:api.algovoi.co.uk -> /.well-known/did.json#verascore or /.well-known/jwks.json.",
+      "6. Verify Ed25519 signature over '{header_b64}.{payload_b64}'."
+    ]
+  },
+  "vector_ids": [
+    "cross-ext-v0-dispute-amplification-001",
+    "cross-ext-v0-synthetic-artifact-dispute-001",
+    "cross-ext-v0-mediator-grooming-001",
+    "cross-ext-v0-escrow-double-release-001",
+    "cross-ext-v0-refund-replay-001"
+  ]
+}

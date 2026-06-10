@@ -1,0 +1,55 @@
+{
+  "rail_id": "a2a-se",
+  "rail_url": "https://exchange.a2a-settlement.org",
+  "artefact_id": "cross-extension-v0",
+  "schema_version": "1.1",
+  "tested_at": "2026-06-10T12:00:00Z",
+  "commit": "8cdcae4",
+  "method": "in-process pytest against exchange app (same code path as production deploy)",
+  "adapter_doc": "https://github.com/a2a-settlement/a2a-settlement/blob/main/docs/conformance-results.md",
+  "vectors": [
+    {
+      "vector_id": "cross-ext-v0-escrow-double-release-001",
+      "attack_class": "escrow_double_release",
+      "expected_verdict": "BLOCK",
+      "result": "PASS",
+      "observed": {
+        "http_status": 400,
+        "detail_substring": "already released"
+      },
+      "adapter_notes": "Second POST /exchange/release on terminal escrow. Row-level lock prevents double payout."
+    },
+    {
+      "vector_id": "cross-ext-v0-refund-replay-001",
+      "attack_class": "refund_replay",
+      "expected_verdict": "BLOCK",
+      "result": "PASS",
+      "observed": {
+        "http_status": 400,
+        "detail_substring": "already refunded"
+      },
+      "adapter_notes": "Refunds are requester-authenticated and bound to escrow_id; replay surfaces as second refund on terminal escrow."
+    },
+    {
+      "vector_id": "cross-ext-v0-dispute-amplification-001",
+      "attack_class": "dispute_amplification",
+      "expected_verdict": "BLOCK",
+      "result": "N/A",
+      "reason": "No concurrent-dispute rate gate in A2A-SE yet"
+    },
+    {
+      "vector_id": "cross-ext-v0-synthetic-artifact-dispute-001",
+      "attack_class": "synthetic_artifact_dispute",
+      "expected_verdict": "REVIEW",
+      "result": "N/A",
+      "reason": "Evidence hash mismatch handled in dispute path; no SYNTHETIC_ARTIFACT_DETECTED code or explicit REVIEW tier"
+    },
+    {
+      "vector_id": "cross-ext-v0-mediator-grooming-001",
+      "attack_class": "mediator_grooming",
+      "expected_verdict": "REVIEW",
+      "result": "N/A",
+      "reason": "Reputation velocity anomaly gate not implemented"
+    }
+  ]
+}

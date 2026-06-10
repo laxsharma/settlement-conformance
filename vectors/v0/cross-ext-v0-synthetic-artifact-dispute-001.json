@@ -1,0 +1,28 @@
+{
+  "vector_id": "cross-ext-v0-synthetic-artifact-dispute-001",
+  "attack_class": "synthetic_artifact_dispute",
+  "composition_layers": [
+    "settlement"
+  ],
+  "input_envelope": {
+    "escrow_id": "esc_002_syn",
+    "settlement_kind": "a2a-se",
+    "mandate_hash": "sha256:2b4f6a8c0d2e4f6a8b0c2d4e6f8a0b2c4d6e8f0a2b4c6d8e0f2a4b6c8d0e2f4a",
+    "amount": "25.000000",
+    "currency": "USDC",
+    "rail": "algovoi",
+    "chain": "base",
+    "dispute": {
+      "submitted_by": "did:web:client.example.org",
+      "artifact_uri": "https://example.org/artifact.bin",
+      "artifact_sha256_claimed": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "artifact_sha256_actual": "sha256:abc1def2abc1def2abc1def2abc1def2abc1def2abc1def2abc1def2abc1def2",
+      "evidence_type": "partial_corruption"
+    }
+  },
+  "expected_verdict": "REVIEW",
+  "expected_error_code": "SYNTHETIC_ARTIFACT_DETECTED",
+  "mediator_behavior": "require_artifact_hash_match",
+  "signer_did": "did:web:api.algovoi.co.uk",
+  "jws": "eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJhdHRhY2tfY2xhc3MiOiJzeW50aGV0aWNfYXJ0aWZhY3RfZGlzcHV0ZSIsImNvbXBvc2l0aW9uX2xheWVycyI6WyJzZXR0bGVtZW50Il0sImV4cGVjdGVkX2Vycm9yX2NvZGUiOiJTWU5USEVUSUNfQVJUSUZBQ1RfREVURUNURUQiLCJleHBlY3RlZF92ZXJkaWN0IjoiUkVWSUVXIiwiaW5wdXRfZW52ZWxvcGUiOnsiYW1vdW50IjoiMjUuMDAwMDAwIiwiY2hhaW4iOiJiYXNlIiwiY3VycmVuY3kiOiJVU0RDIiwiZGlzcHV0ZSI6eyJhcnRpZmFjdF9zaGEyNTZfYWN0dWFsIjoic2hhMjU2OmFiYzFkZWYyYWJjMWRlZjJhYmMxZGVmMmFiYzFkZWYyYWJjMWRlZjJhYmMxZGVmMmFiYzFkZWYyYWJjMWRlZjIiLCJhcnRpZmFjdF9zaGEyNTZfY2xhaW1lZCI6InNoYTI1NjowMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwIiwiYXJ0aWZhY3RfdXJpIjoiaHR0cHM6Ly9leGFtcGxlLm9yZy9hcnRpZmFjdC5iaW4iLCJldmlkZW5jZV90eXBlIjoicGFydGlhbF9jb3JydXB0aW9uIiwic3VibWl0dGVkX2J5IjoiZGlkOndlYjpjbGllbnQuZXhhbXBsZS5vcmcifSwiZXNjcm93X2lkIjoiZXNjXzAwMl9zeW4iLCJtYW5kYXRlX2hhc2giOiJzaGEyNTY6MmI0ZjZhOGMwZDJlNGY2YThiMGMyZDRlNmY4YTBiMmM0ZDZlOGYwYTJiNGM2ZDhlMGYyYTRiNmM4ZDBlMmY0YSIsInJhaWwiOiJhbGdvdm9pIiwic2V0dGxlbWVudF9raW5kIjoiYTJhLXNlIn0sIm1lZGlhdG9yX2JlaGF2aW9yIjoicmVxdWlyZV9hcnRpZmFjdF9oYXNoX21hdGNoIiwic2lnbmVyX2RpZCI6ImRpZDp3ZWI6YXBpLmFsZ292b2kuY28udWsiLCJ2ZWN0b3JfaWQiOiJjcm9zcy1leHQtdjAtc3ludGhldGljLWFydGlmYWN0LWRpc3B1dGUtMDAxIn0.QTTyRPkkP0b8JGYpOpoZimZELl7BCBBWbi1W5x3mpVl1StZRQ_k1WCil93aFPt_isAWFTaTxvkdumNaswq8MBg"
+}

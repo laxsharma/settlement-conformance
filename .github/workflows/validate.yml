@@ -1,0 +1,26 @@
+name: validate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  vectors:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r harness/requirements.txt
+
+      - name: Validate vector shape and JWS
+        run: python -m harness.validate_vectors --vectors vectors/v0
+
+      - name: Run pytest
+        run: python -m pytest tests/ -v

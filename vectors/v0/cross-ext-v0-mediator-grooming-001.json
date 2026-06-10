@@ -1,0 +1,29 @@
+{
+  "vector_id": "cross-ext-v0-mediator-grooming-001",
+  "attack_class": "mediator_grooming",
+  "composition_layers": [
+    "settlement",
+    "reputation"
+  ],
+  "input_envelope": {
+    "escrow_id": "esc_003_grm",
+    "settlement_kind": "a2a-se",
+    "mandate_hash": "sha256:3c5d7e9a1f3c5d7e9a1f3c5d7e9a1f3c5d7e9a1f3c5d7e9a1f3c5d7e9a1f3c5d",
+    "amount": "500.000000",
+    "currency": "USDC",
+    "rail": "algovoi",
+    "chain": "base",
+    "reputation_signal": {
+      "client_did": "did:web:groomed.example.org",
+      "win_rate_30d": 0.985,
+      "dispute_count_30d": 132,
+      "auto_allow_threshold": 0.95,
+      "value_weighted_history": false
+    }
+  },
+  "expected_verdict": "REVIEW",
+  "expected_error_code": "REPUTATION_VELOCITY_ANOMALY",
+  "mediator_behavior": "downweight_unweighted_history",
+  "signer_did": "did:web:api.algovoi.co.uk",
+  "jws": "eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJhdHRhY2tfY2xhc3MiOiJtZWRpYXRvcl9ncm9vbWluZyIsImNvbXBvc2l0aW9uX2xheWVycyI6WyJzZXR0bGVtZW50IiwicmVwdXRhdGlvbiJdLCJleHBlY3RlZF9lcnJvcl9jb2RlIjoiUkVQVVRBVElPTl9WRUxPQ0lUWV9BTk9NQUxZIiwiZXhwZWN0ZWRfdmVyZGljdCI6IlJFVklFVyIsImlucHV0X2VudmVsb3BlIjp7ImFtb3VudCI6IjUwMC4wMDAwMDAiLCJjaGFpbiI6ImJhc2UiLCJjdXJyZW5jeSI6IlVTREMiLCJlc2Nyb3dfaWQiOiJlc2NfMDAzX2dybSIsIm1hbmRhdGVfaGFzaCI6InNoYTI1NjozYzVkN2U5YTFmM2M1ZDdlOWExZjNjNWQ3ZTlhMWYzYzVkN2U5YTFmM2M1ZDdlOWExZjNjNWQ3ZTlhMWYzYzVkIiwicmFpbCI6ImFsZ292b2kiLCJyZXB1dGF0aW9uX3NpZ25hbCI6eyJhdXRvX2FsbG93X3RocmVzaG9sZCI6MC45NSwiY2xpZW50X2RpZCI6ImRpZDp3ZWI6Z3Jvb21lZC5leGFtcGxlLm9yZyIsImRpc3B1dGVfY291bnRfMzBkIjoxMzIsInZhbHVlX3dlaWdodGVkX2hpc3RvcnkiOmZhbHNlLCJ3aW5fcmF0ZV8zMGQiOjAuOTg1fSwic2V0dGxlbWVudF9raW5kIjoiYTJhLXNlIn0sIm1lZGlhdG9yX2JlaGF2aW9yIjoiZG93bndlaWdodF91bndlaWdodGVkX2hpc3RvcnkiLCJzaWduZXJfZGlkIjoiZGlkOndlYjphcGkuYWxnb3ZvaS5jby51ayIsInZlY3Rvcl9pZCI6ImNyb3NzLWV4dC12MC1tZWRpYXRvci1ncm9vbWluZy0wMDEifQ.7HimHsuwkSh4muBG6JzYHI7n-auU-CjE4HYJ__GHGhfl85gGycO3j48bUCLXdKMSpOx2-1_pVTXoeyLFKLgUBA"
+}

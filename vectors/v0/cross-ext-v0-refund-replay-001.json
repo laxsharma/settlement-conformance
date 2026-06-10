@@ -1,0 +1,27 @@
+{
+  "vector_id": "cross-ext-v0-refund-replay-001",
+  "attack_class": "refund_replay",
+  "composition_layers": [
+    "settlement"
+  ],
+  "input_envelope": {
+    "escrow_id": "esc_005_rep",
+    "settlement_kind": "a2a-se",
+    "mandate_hash": "sha256:5e7f9a1b3c5e7f9a1b3c5e7f9a1b3c5e7f9a1b3c5e7f9a1b3c5e7f9a1b3c5e7f",
+    "amount": "75.000000",
+    "currency": "USDC",
+    "rail": "algovoi",
+    "chain": "base",
+    "refund_authorization": {
+      "original_escrow_id": "esc_PRIOR_settled",
+      "replayed_against_escrow_id": "esc_005_rep",
+      "tampered_field": "escrow_id",
+      "signed_by_original_signer": true
+    }
+  },
+  "expected_verdict": "BLOCK",
+  "expected_error_code": "REFUND_AUTHORIZATION_REPLAY",
+  "mediator_behavior": null,
+  "signer_did": "did:web:api.algovoi.co.uk",
+  "jws": "eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJhdHRhY2tfY2xhc3MiOiJyZWZ1bmRfcmVwbGF5IiwiY29tcG9zaXRpb25fbGF5ZXJzIjpbInNldHRsZW1lbnQiXSwiZXhwZWN0ZWRfZXJyb3JfY29kZSI6IlJFRlVORF9BVVRIT1JJWkFUSU9OX1JFUExBWSIsImV4cGVjdGVkX3ZlcmRpY3QiOiJCTE9DSyIsImlucHV0X2VudmVsb3BlIjp7ImFtb3VudCI6Ijc1LjAwMDAwMCIsImNoYWluIjoiYmFzZSIsImN1cnJlbmN5IjoiVVNEQyIsImVzY3Jvd19pZCI6ImVzY18wMDVfcmVwIiwibWFuZGF0ZV9oYXNoIjoic2hhMjU2OjVlN2Y5YTFiM2M1ZTdmOWExYjNjNWU3ZjlhMWIzYzVlN2Y5YTFiM2M1ZTdmOWExYjNjNWU3ZjlhMWIzYzVlN2YiLCJyYWlsIjoiYWxnb3ZvaSIsInJlZnVuZF9hdXRob3JpemF0aW9uIjp7Im9yaWdpbmFsX2VzY3Jvd19pZCI6ImVzY19QUklPUl9zZXR0bGVkIiwicmVwbGF5ZWRfYWdhaW5zdF9lc2Nyb3dfaWQiOiJlc2NfMDA1X3JlcCIsInNpZ25lZF9ieV9vcmlnaW5hbF9zaWduZXIiOnRydWUsInRhbXBlcmVkX2ZpZWxkIjoiZXNjcm93X2lkIn0sInNldHRsZW1lbnRfa2luZCI6ImEyYS1zZSJ9LCJtZWRpYXRvcl9iZWhhdmlvciI6bnVsbCwic2lnbmVyX2RpZCI6ImRpZDp3ZWI6YXBpLmFsZ292b2kuY28udWsiLCJ2ZWN0b3JfaWQiOiJjcm9zcy1leHQtdjAtcmVmdW5kLXJlcGxheS0wMDEifQ.igRWuzmOMPfpfzgV10PBijfltHUJYw-9k96_ZWfJNGo6D1iRFUUuLJRoSROw8RI0giVm5tUeO50h-CjIKNUpCw"
+}

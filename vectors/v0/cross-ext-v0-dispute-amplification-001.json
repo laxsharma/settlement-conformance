@@ -1,0 +1,27 @@
+{
+  "vector_id": "cross-ext-v0-dispute-amplification-001",
+  "attack_class": "dispute_amplification",
+  "composition_layers": [
+    "settlement",
+    "reputation"
+  ],
+  "input_envelope": {
+    "escrow_id": "esc_001_amp",
+    "settlement_kind": "a2a-se",
+    "mandate_hash": "sha256:9a2e8b1c4f3d6e8a0b2c4d6e8f0a2b4c6d8e0f2a4b6c8d0e2f4a6b8c0d2e4f6a",
+    "amount": "10.000000",
+    "currency": "USDC",
+    "rail": "algovoi",
+    "chain": "base",
+    "dispute_history": {
+      "concurrent_disputes": 47,
+      "window_seconds": 60,
+      "client_did": "did:web:malicious.example.org"
+    }
+  },
+  "expected_verdict": "BLOCK",
+  "expected_error_code": "DISPUTE_AMPLIFICATION_DETECTED",
+  "mediator_behavior": null,
+  "signer_did": "did:web:api.algovoi.co.uk",
+  "jws": "eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJhdHRhY2tfY2xhc3MiOiJkaXNwdXRlX2FtcGxpZmljYXRpb24iLCJjb21wb3NpdGlvbl9sYXllcnMiOlsic2V0dGxlbWVudCIsInJlcHV0YXRpb24iXSwiZXhwZWN0ZWRfZXJyb3JfY29kZSI6IkRJU1BVVEVfQU1QTElGSUNBVElPTl9ERVRFQ1RFRCIsImV4cGVjdGVkX3ZlcmRpY3QiOiJCTE9DSyIsImlucHV0X2VudmVsb3BlIjp7ImFtb3VudCI6IjEwLjAwMDAwMCIsImNoYWluIjoiYmFzZSIsImN1cnJlbmN5IjoiVVNEQyIsImRpc3B1dGVfaGlzdG9yeSI6eyJjbGllbnRfZGlkIjoiZGlkOndlYjptYWxpY2lvdXMuZXhhbXBsZS5vcmciLCJjb25jdXJyZW50X2Rpc3B1dGVzIjo0Nywid2luZG93X3NlY29uZHMiOjYwfSwiZXNjcm93X2lkIjoiZXNjXzAwMV9hbXAiLCJtYW5kYXRlX2hhc2giOiJzaGEyNTY6OWEyZThiMWM0ZjNkNmU4YTBiMmM0ZDZlOGYwYTJiNGM2ZDhlMGYyYTRiNmM4ZDBlMmY0YTZiOGMwZDJlNGY2YSIsInJhaWwiOiJhbGdvdm9pIiwic2V0dGxlbWVudF9raW5kIjoiYTJhLXNlIn0sIm1lZGlhdG9yX2JlaGF2aW9yIjpudWxsLCJzaWduZXJfZGlkIjoiZGlkOndlYjphcGkuYWxnb3ZvaS5jby51ayIsInZlY3Rvcl9pZCI6ImNyb3NzLWV4dC12MC1kaXNwdXRlLWFtcGxpZmljYXRpb24tMDAxIn0.wijQHbNuvEgGTKPbPkkQCzN4oaKN0_1H_yfyLqPfxkmd98GfmD2rPAa1fFPu31zTYh5scI5pJvg8TquEC-GGCw"
+}
